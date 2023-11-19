@@ -13,13 +13,12 @@ class _AlarmScreenState extends State<AlarmScreen> {
   Widget alarmList(List<QueryDocumentSnapshot<Map<String, dynamic>>> alarmDocs){
     if (alarmDocs.isNotEmpty){
       return ListView.builder(
-        reverse: true,
         itemCount: alarmDocs.length,
         itemBuilder: (context, index){
           return Card(
             child: ListTile(
                 title: Text("${alarmDocs[index]['degree']}: ${alarmDocs[index]['title']} (${alarmDocs[index]['createdAt'].toDate().toString()})"),
-                subtitle: Text(alarmDocs[index]['content'].toDate().toString()),
+                subtitle: Text(alarmDocs[index]['content']),
             ),
           );
         },
