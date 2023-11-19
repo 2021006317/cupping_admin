@@ -17,7 +17,8 @@ class _AlarmScreenState extends State<AlarmScreen> {
         itemBuilder: (context, index){
           return Card(
             child: ListTile(
-                title: Text("${alarmDocs[index]['degree']}: ${alarmDocs[index]['title']} (${alarmDocs[index]['createdAt'].toDate().toString()})"),
+              tileColor: alarmDocs[index]['degree'] == "critical" ? Colors.redAccent : Colors.yellowAccent,
+                title: Text("${alarmDocs[index]['degree']}: ${alarmDocs[index]['title']} (${alarmDocs[index]['createdAt'].toDate().toString().substring(0,16)})"),
                 subtitle: Text(alarmDocs[index]['content']),
             ),
           );
